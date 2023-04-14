@@ -1,0 +1,32 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int input;
+    // get a number from input with number between 1 and 8
+    do
+    {
+        input = get_int("Pick a number between 1 and 8: ");
+    }
+    while (input < 1 || input > 8);
+
+    // nest of loops - i for rows ang j for columns
+    // from the left it starts filling empty spaces until i+j (half of the rectangle) has been "filled" with empty spaces
+    for (int i = 0; i < input; i++)
+    {
+        for (int j = 0; j < input; j++)
+        {
+            if (i + j < input - 1)
+            {
+                printf(" ");
+            }
+            else
+            {
+                printf("#");
+            }
+        }
+        printf("\n");
+    }
+
+}
